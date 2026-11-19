@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- ゴシック＆ヴィクトリアン調の美しいセリフ体フォント（Google Fonts） -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
@@ -24,11 +23,10 @@
         <div class="ornament-top">❦ ── ✦ ── ❦</div>
         <div class="profile-header">
           <div class="portrait-frame">
-           
             <img src="profile.jpg" alt="れいのポートレート" class="profile-img">
           </div>
           <div>
-            <h2>谷口 麗菜 <span class="nickname">― れい / Kasta-  ―</span></h2>
+            <h2>谷口 麗菜 <span class="nickname">― れい / Caster ―</span></h2>
             <p class="subtitle">ZEN大学 / ITメンター / ゲーム・Mod開発者</p>
             <p class="bio">
               Unityを用いたゲーム制作や、JavaによるMinecraft Moddingを中心に創作活動を行っております。<br>
@@ -38,7 +36,7 @@
         </div>
       </section>
 
-      <!-- JavaScript インタラクティブ機能：今日のお茶会診断 -->
+      <!-- 今日のお茶会診断 -->
       <section class="gothic-card tea-salon-section">
         <h3>☕ 今日のお茶会診断 ― Tea Party Oracle ―</h3>
         <p class="section-desc">今の気分に合わせて、本日のお茶会にふさわしい紅茶とスイーツをお選びいたします。</p>
@@ -129,35 +127,36 @@
         </table>
       </section>
 
-      <!-- メディア＆X -->
+      <!-- メディア＆X（見栄え良く確実に開けるカード仕様） -->
       <section class="gothic-card">
         <h3>⚜ Favorite Media & Social</h3>
         <div class="media-container">
           <div class="media-item">
             <h4>お気に入り動画</h4>
-            <div class="iframe-wrapper">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/R0LB1AoF17w?si=yaauReZY2W0aYZu7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="iframe-wrapper youtube-ratio">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/R0LB1AoF17w?si=3H9lWNASTOK7_Z0R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
           </div>
           <div class="media-item">
-            <h4>OpenProcessing</h4>
-            <div class="iframe-wrapper">
+            <h4>OpenProcessing Sketch</h4>
+            <div class="iframe-wrapper sketch-ratio">
               <iframe src="https://openprocessing.org/sketch/3063866/embed/" width="400" height="400"></iframe>
             </div>
           </div>
         </div>
 
-        <div class="x-section">
-          <h4>X (旧 Twitter)</h4>
-          <p class="x-note">※ブラウザの仕様でタイムラインが表示されない場合は、下のボタンから直接ご覧いただけます。</p>
-          <a href="https://x.com/kokuko5953" target="_blank" rel="noopener noreferrer" class="x-direct-btn">
-            𝕏 @kokuko5953 のポストをWebで見る
-          </a>
-          <div class="twitter-box">
-            <a class="twitter-timeline" data-width="400" data-height="600" data-theme="dark" href="https://x.com/kokuko5953?ref_src=twsrc%5Etfw">Posts by kokuko5953</a>
-            <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
+        <!-- X専用ゴシック・リンクカード -->
+        <div class="x-salon-card">
+          <div class="x-card-info">
+            <span class="x-badge">𝕏 Official Account</span>
+            <h4>Rei / 谷口麗菜 (@kokuko5953)</h4>
+            <p>日々の開発進捗や日常のつぶやきはこちらのXアカウントにて発信しております。</p>
           </div>
+          <a href="https://x.com/kokuko5953" target="_blank" rel="noopener noreferrer" class="x-action-btn">
+            𝕏 タイムラインを開く ↗
+          </a>
         </div>
+
         <div class="ornament-bottom">❦ ── ✦ ── ❦</div>
       </section>
     </main>
