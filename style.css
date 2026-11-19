@@ -10,7 +10,6 @@
   --border-ornate: #7b52ab;
 }
 
-/* 「燭台の灯り」モード（少し明るめのトワイライト・パープル） */
 body.candle-mode {
   --bg-main: #1d142b;
   --bg-pattern: #281c3b;
@@ -31,7 +30,6 @@ body.candle-mode {
 body {
   font-family: "Shippori Mincho", "Yu Mincho", "Hiragino Mincho ProN", serif;
   background-color: var(--bg-main);
-  /* ヴィクトリアン壁紙風のダマスク調ダイヤ格子背景 */
   background-image: 
     radial-gradient(circle at 50% 0%, #2a1744 0%, transparent 60%),
     repeating-linear-gradient(45deg, var(--bg-pattern) 0, var(--bg-pattern) 2px, transparent 2px, transparent 18px),
@@ -90,7 +88,6 @@ body {
   padding: 0 20px;
 }
 
-/* ヴィクトリアン・ゴシック調カード */
 .gothic-card {
   background-color: var(--card-bg);
   border: 3px double var(--border-ornate);
@@ -160,7 +157,6 @@ h4 {
   font-size: 0.95rem;
 }
 
-/* 肖像画風フレーム */
 .profile-header {
   display: flex;
   align-items: center;
@@ -181,7 +177,7 @@ h4 {
   height: 135px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center 20%; /* お顔が美しく収まる位置に調整 */
+  object-position: center 20%;
   display: block;
 }
 
@@ -227,7 +223,6 @@ th {
   font-weight: 600;
 }
 
-/* リンクボタン */
 .links-grid {
   display: flex;
   gap: 14px;
@@ -253,7 +248,6 @@ th {
   transform: translateY(-2px);
 }
 
-/* 今日のお茶会診断 */
 .tea-controls {
   display: flex;
   gap: 12px;
@@ -306,21 +300,30 @@ th {
   margin-bottom: 6px;
 }
 
-/* 動画・埋め込み */
+/* 動画・OpenProcessing埋め込み */
 .media-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 22px;
-  margin-bottom: 24px;
+  gap: 24px;
+  margin-bottom: 28px;
+  align-items: start;
 }
 
 .iframe-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 56.25%;
   border: 1px solid var(--border-ornate);
   border-radius: 4px;
   overflow: hidden;
+  background: #07040a;
+}
+
+.youtube-ratio {
+  padding-top: 56.25%; /* 16:9 */
+}
+
+.sketch-ratio {
+  padding-top: 100%; /* 1:1 正方形（400x400に最適化） */
 }
 
 .iframe-wrapper iframe {
@@ -332,43 +335,58 @@ th {
   border: none;
 }
 
-/* X (Twitter) セクション */
-.x-section {
-  margin-top: 24px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(155, 109, 255, 0.25);
-}
-
-.x-note {
-  font-size: 0.85rem;
-  color: var(--text-sub);
-  margin-bottom: 10px;
-}
-
-.x-direct-btn {
-  display: inline-block;
-  text-decoration: none;
-  background: #1a1126;
+/* X専用ヴィクトリアン・カード */
+.x-salon-card {
+  margin-top: 20px;
+  padding: 22px 26px;
+  background: linear-gradient(135deg, rgba(35, 19, 54, 0.95) 0%, rgba(15, 9, 24, 0.98) 100%);
   border: 1px solid var(--purple-bright);
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+}
+
+.x-badge {
+  display: inline-block;
+  font-size: 0.78rem;
   color: var(--purple-bright);
-  padding: 8px 16px;
+  border: 1px solid var(--border-ornate);
+  padding: 2px 10px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+.x-card-info h4 {
+  margin-bottom: 4px;
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+.x-card-info p {
+  font-size: 0.88rem;
+  color: var(--text-sub);
+}
+
+.x-action-btn {
+  flex-shrink: 0;
+  text-decoration: none;
+  background: linear-gradient(135deg, #6934a3 0%, #3f1b66 100%);
+  border: 1px solid var(--purple-bright);
+  color: #ffffff;
+  padding: 12px 22px;
   border-radius: 4px;
-  font-size: 0.9rem;
-  margin-bottom: 14px;
+  font-weight: 600;
+  font-size: 0.95rem;
   transition: all 0.3s;
 }
 
-.x-direct-btn:hover {
-  background: var(--purple-deep);
-  color: #ffffff;
-}
-
-.twitter-box {
-  max-width: 500px;
-  background: #120b1c;
-  border: 1px solid var(--border-ornate);
-  border-radius: 4px;
-  padding: 8px;
+.x-action-btn:hover {
+  background: #7c40bd;
+  box-shadow: 0 0 18px var(--purple-glow);
+  transform: translateY(-2px);
 }
 
 .footer {
@@ -380,7 +398,7 @@ th {
 }
 
 @media (max-width: 700px) {
-  .profile-header {
+  .profile-header, .x-salon-card {
     flex-direction: column;
     text-align: center;
   }
