@@ -3,56 +3,73 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- ゴシック＆ヴィクトリアン調の美しいセリフ体フォント（Google Fonts） -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
-    <title>Rei's Portfolio | 谷口麗菜</title>
+    <title>Rei's Victorian Salon | 谷口麗菜</title>
   </head>
   <body>
     <header class="header">
       <div class="header-inner">
-        <h1 class="site-title">Rei's Portfolio</h1>
-        <button id="theme-toggle" class="theme-btn">🌙 ダークモード</button>
+        <h1 class="site-title">♛ Rei's Portfolio ♛</h1>
+        <button id="theme-toggle" class="theme-btn">🕯️ 燭台の灯り (Brightness)</button>
       </div>
     </header>
 
     <main class="container">
       <!-- プロフィールセクション -->
-      <section class="card profile-section">
+      <section class="gothic-card profile-section">
+        <div class="ornament-top">❦ ── ✦ ── ❦</div>
         <div class="profile-header">
-        
-          <img src="profile.png" alt="れいのプロフィール画像" class="profile-img" onerror="this.src='https://placehold.jp/150x150.png?text=Rei'">
+          <div class="portrait-frame">
+           
+            <img src="profile.jpg" alt="れいのポートレート" class="profile-img">
+          </div>
           <div>
-            <h2>谷口 麗菜 <span class="nickname">(れい / Caster)</span></h2>
-            <p class="subtitle">ZEN大学 1年生 / ITメンター / ゲーム・Mod開発者</p>
+            <h2>谷口 麗菜 <span class="nickname">― れい / Kasta-  ―</span></h2>
+            <p class="subtitle">ZEN大学 / ITメンター / ゲーム・Mod開発者</p>
             <p class="bio">
-              Unityを用いたゲーム制作や、JavaによるMinecraft Moddingを中心に活動しています。<br>
-              中高生向けIT教育プログラムのメンターとして、ものづくりの楽しさを伝える活動も行っています。
+              Unityを用いたゲーム制作や、JavaによるMinecraft Moddingを中心に創作活動を行っております。<br>
+              IT教育プログラムのメンターとして、ものづくりの楽しさと技術の魅力を伝える活動にも携わっています。
             </p>
           </div>
         </div>
       </section>
 
-      <!-- JavaScript インタラクティブ機能 -->
-      <section class="card interactive-section">
-        <h3>🎲 今日の開発おみくじ (JavaScript Demo)</h3>
-        <p>ボタンを押すと、今日のラッキー開発言語と一言メッセージが表示されます。</p>
-        <button id="omikuji-btn" class="action-btn">おみくじを引く</button>
-        <div id="omikuji-result" class="result-box">ここに結果が表示されます</div>
+      <!-- JavaScript インタラクティブ機能：今日のお茶会診断 -->
+      <section class="gothic-card tea-salon-section">
+        <h3>☕ 今日のお茶会診断 ― Tea Party Oracle ―</h3>
+        <p class="section-desc">今の気分に合わせて、本日のお茶会にふさわしい紅茶とスイーツをお選びいたします。</p>
+        <div class="tea-controls">
+          <select id="mood-select" class="gothic-select">
+            <option value="elegant">優雅にリラックスしたい気分</option>
+            <option value="focus">開発や作業に集中したい気分</option>
+            <option value="sweet">とびきり甘いものに癒やされたい気分</option>
+            <option value="mystic">少しミステリアスな夜更かし気分</option>
+          </select>
+          <button id="tea-btn" class="action-btn">ティーカップを覗く</button>
+        </div>
+        <div id="tea-result" class="result-box">
+          ここに本日のおすすめの紅茶＆スイーツが表示されます…
+        </div>
       </section>
 
-      <!-- スキルセクション -->
-      <section class="card">
-        <h3>Skills & Profile</h3>
+      <!-- スキル＆プロフィール -->
+      <section class="gothic-card">
+        <h3>⚜ Skills & Profile</h3>
         <div class="grid-2">
           <div>
-            <h4>Basic Info</h4>
+            <h4>Profile</h4>
             <ul class="info-list">
               <li><strong>拠点：</strong>千葉県</li>
               <li><strong>専門領域：</strong>Unity / Minecraft Modding / DX</li>
-              <li><strong>趣味・特技：</strong>居合道（無外流）、カフェ巡り</li>
+              <li><strong>趣味・嗜好：</strong>居合道（無外流）、カフェ・ティーサロン巡り</li>
             </ul>
           </div>
           <div>
-            <h4>Tech Stack & Qualifications</h4>
+            <h4>Environment & Qualifications</h4>
             <table class="skills-table">
               <tr>
                 <th>OS</th>
@@ -60,14 +77,14 @@
               </tr>
               <tr>
                 <th>Engine / Lang</th>
-                <td>Unity (C#), Java, Node.js, Express</td>
+                <td>Unity (C#), Java, HTML / CSS / JS</td>
               </tr>
               <tr>
-                <th>Tool / Middleware</th>
-                <td>Git, GitHub, VRoid Studio</td>
+                <th>Platform / Tool</th>
+                <td>GitHub, Unityroom, VRoid Studio</td>
               </tr>
               <tr>
-                <th>資格・検定</th>
+                <th>資格・免許</th>
                 <td>TOEIC 670点</td>
               </tr>
             </table>
@@ -75,23 +92,27 @@
         </div>
       </section>
 
-      <!-- 制作実績・経歴 -->
-      <section class="card">
-        <h3>Works & Links</h3>
-        <p>ITメンター（DX / Minecraft Moddingコース）としての指導経験および個人制作物です。</p>
+      <!-- 制作実績・リンク -->
+      <section class="gothic-card">
+        <h3>⚜ Works & Archives</h3>
+        <p class="section-desc">DXメンター・JavaによるMinecraft Moddingメンターとしての指導経験、および個人制作作品です。</p>
         <div class="links-grid">
-          <a href="https://github.com/kokuko315" target="_blank" class="link-card">GitHub (@kokuko315)</a>
-          <a href="https://qiita.com/" target="_blank" class="link-card">Qiita</a>
-          <a href="https://zenn.dev/" target="_blank" class="link-card">Zenn</a>
+          <a href="https://github.com/kokuko315" target="_blank" rel="noopener noreferrer" class="link-card">
+            ✦ GitHub (@kokuko315)
+          </a>
+          <a href="https://unityroom.com/users/kokuko315" target="_blank" rel="noopener noreferrer" class="link-card">
+            ✦ Unityroom 公開作品一覧
+          </a>
         </div>
         <ul class="works-list">
           <li><strong>Trade Connect：</strong>Unityで制作したオリジナルパズル・シミュレーションゲーム</li>
-          <li><strong>Minecraft オリジナルMod：</strong>Javaを用いた機能拡張Modの開発</li>
+          <li><strong>Minecraft オリジナルMod：</strong>Javaを用いた機能拡張Modの設計・開発</li>
         </ul>
       </section>
 
-      <section class="card">
-        <h3>History</h3>
+      <!-- 経歴 -->
+      <section class="gothic-card">
+        <h3>⚜ History</h3>
         <table class="history-table">
           <tr>
             <th>2026年</th>
@@ -108,23 +129,36 @@
         </table>
       </section>
 
-      <!-- メディア埋め込み -->
-      <section class="card">
-        <h3>Media & Creative Coding</h3>
+      <!-- メディア＆X -->
+      <section class="gothic-card">
+        <h3>⚜ Favorite Media & Social</h3>
         <div class="media-container">
           <div class="media-item">
-            <h4>好きな動画</h4>
+            <h4>お気に入り動画</h4>
             <div class="iframe-wrapper">
-              <iframe src="https://www.youtube.com/embed/WkqPh70G3gY?si=rXtDo0ZpEXmeidln" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/R0LB1AoF17w?si=yaauReZY2W0aYZu7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
           </div>
           <div class="media-item">
             <h4>OpenProcessing</h4>
             <div class="iframe-wrapper">
-              <iframe src="https://openprocessing.org/sketch/822736/embed/"></iframe>
+              <iframe src="https://openprocessing.org/sketch/3063866/embed/" width="400" height="400"></iframe>
             </div>
           </div>
         </div>
+
+        <div class="x-section">
+          <h4>X (旧 Twitter)</h4>
+          <p class="x-note">※ブラウザの仕様でタイムラインが表示されない場合は、下のボタンから直接ご覧いただけます。</p>
+          <a href="https://x.com/kokuko5953" target="_blank" rel="noopener noreferrer" class="x-direct-btn">
+            𝕏 @kokuko5953 のポストをWebで見る
+          </a>
+          <div class="twitter-box">
+            <a class="twitter-timeline" data-width="400" data-height="600" data-theme="dark" href="https://x.com/kokuko5953?ref_src=twsrc%5Etfw">Posts by kokuko5953</a>
+            <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
+          </div>
+        </div>
+        <div class="ornament-bottom">❦ ── ✦ ── ❦</div>
       </section>
     </main>
 
