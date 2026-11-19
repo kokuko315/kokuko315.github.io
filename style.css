@@ -1,21 +1,25 @@
 :root {
-  --bg-color: #f4f6f9;
-  --card-bg: #ffffff;
-  --text-color: #333333;
-  --sub-text: #666666;
-  --accent-color: #6c5ce7;
-  --accent-hover: #5a4ad1;
-  --border-color: #e0e4e8;
+  --bg-main: #0b0810;
+  --bg-pattern: #130d1d;
+  --card-bg: rgba(24, 16, 36, 0.94);
+  --text-main: #f2ecf9;
+  --text-sub: #c4b5d6;
+  --purple-bright: #b689ff;
+  --purple-deep: #4a2574;
+  --purple-glow: rgba(168, 114, 255, 0.25);
+  --border-ornate: #7b52ab;
 }
 
-body.dark-mode {
-  --bg-color: #18191a;
-  --card-bg: #242526;
-  --text-color: #e4e6eb;
-  --sub-text: #b0b3b8;
-  --accent-color: #a29bfe;
-  --accent-hover: #8c82fc;
-  --border-color: #3a3b3c;
+/* 「燭台の灯り」モード（少し明るめのトワイライト・パープル） */
+body.candle-mode {
+  --bg-main: #1d142b;
+  --bg-pattern: #281c3b;
+  --card-bg: rgba(38, 26, 56, 0.95);
+  --text-main: #ffffff;
+  --text-sub: #dfd3ee;
+  --purple-bright: #d0b3ff;
+  --purple-deep: #633596;
+  --border-ornate: #9d74cf;
 }
 
 * {
@@ -25,24 +29,30 @@ body.dark-mode {
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  line-height: 1.6;
-  transition: background-color 0.3s, color 0.3s;
+  font-family: "Shippori Mincho", "Yu Mincho", "Hiragino Mincho ProN", serif;
+  background-color: var(--bg-main);
+  /* ヴィクトリアン壁紙風のダマスク調ダイヤ格子背景 */
+  background-image: 
+    radial-gradient(circle at 50% 0%, #2a1744 0%, transparent 60%),
+    repeating-linear-gradient(45deg, var(--bg-pattern) 0, var(--bg-pattern) 2px, transparent 2px, transparent 18px),
+    repeating-linear-gradient(-45deg, var(--bg-pattern) 0, var(--bg-pattern) 2px, transparent 2px, transparent 18px);
+  color: var(--text-main);
+  line-height: 1.8;
+  transition: all 0.4s ease;
 }
 
 .header {
-  background-color: var(--card-bg);
-  border-bottom: 1px solid var(--border-color);
-  padding: 15px 20px;
+  background: linear-gradient(180deg, #07040a 0%, rgba(20, 12, 32, 0.95) 100%);
+  border-bottom: 2px double var(--border-ornate);
+  padding: 16px 24px;
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
 }
 
 .header-inner {
-  max-width: 900px;
+  max-width: 920px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -50,90 +60,135 @@ body {
 }
 
 .site-title {
-  font-size: 1.4rem;
-  color: var(--accent-color);
+  font-family: "Cinzel Decorative", "Shippori Mincho", serif;
+  font-size: 1.5rem;
+  color: var(--purple-bright);
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 12px var(--purple-glow);
 }
 
 .theme-btn {
-  background: transparent;
-  border: 1px solid var(--accent-color);
-  color: var(--accent-color);
-  padding: 6px 12px;
-  border-radius: 20px;
+  font-family: "Shippori Mincho", serif;
+  background: rgba(74, 37, 116, 0.4);
+  border: 1px solid var(--purple-bright);
+  color: var(--text-main);
+  padding: 6px 14px;
+  border-radius: 4px;
   cursor: pointer;
   font-size: 0.85rem;
-  transition: all 0.2s;
+  transition: all 0.3s;
 }
 
 .theme-btn:hover {
-  background: var(--accent-color);
-  color: #fff;
+  background: var(--purple-deep);
+  box-shadow: 0 0 12px var(--purple-glow);
 }
 
 .container {
-  max-width: 900px;
-  margin: 30px auto;
+  max-width: 920px;
+  margin: 36px auto;
   padding: 0 20px;
 }
 
-.card {
+/* ヴィクトリアン・ゴシック調カード */
+.gothic-card {
   background-color: var(--card-bg);
-  border-radius: 12px;
-  padding: 25px;
-  margin-bottom: 24px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border: 1px solid var(--border-color);
+  border: 3px double var(--border-ornate);
+  border-radius: 6px;
+  padding: 32px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.75), inset 0 0 25px rgba(123, 82, 171, 0.12);
+  position: relative;
+}
+
+.ornament-top, .ornament-bottom {
+  text-align: center;
+  color: var(--purple-bright);
+  letter-spacing: 0.3em;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+.ornament-top {
+  margin-bottom: 18px;
+}
+
+.ornament-bottom {
+  margin-top: 22px;
 }
 
 h2 {
-  font-size: 1.6rem;
-  margin-bottom: 4px;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #ffffff;
 }
 
 .nickname {
-  font-size: 1rem;
-  color: var(--sub-text);
-  font-weight: normal;
+  font-size: 1.05rem;
+  color: var(--purple-bright);
+  font-weight: 400;
+  margin-left: 8px;
 }
 
 .subtitle {
-  color: var(--accent-color);
-  font-weight: bold;
+  color: var(--text-sub);
   font-size: 0.95rem;
-  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(155, 109, 255, 0.3);
+  padding-bottom: 8px;
+  margin-bottom: 14px;
 }
 
 h3 {
-  font-size: 1.3rem;
-  border-left: 4px solid var(--accent-color);
-  padding-left: 10px;
-  margin-bottom: 16px;
+  font-size: 1.35rem;
+  color: var(--purple-bright);
+  border-bottom: 1px solid var(--border-ornate);
+  padding-bottom: 8px;
+  margin-bottom: 18px;
+  letter-spacing: 0.05em;
 }
 
 h4 {
   font-size: 1.05rem;
-  margin-bottom: 10px;
-  color: var(--sub-text);
+  color: var(--purple-bright);
+  margin-bottom: 12px;
 }
 
+.section-desc {
+  color: var(--text-sub);
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+}
+
+/* 肖像画風フレーム */
 .profile-header {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 28px;
+}
+
+.portrait-frame {
+  flex-shrink: 0;
+  padding: 6px;
+  border: 2px solid var(--purple-bright);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--purple-deep), #0b0810);
+  box-shadow: 0 0 20px var(--purple-glow);
 }
 
 .profile-img {
-  width: 120px;
-  height: 120px;
+  width: 135px;
+  height: 135px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--accent-color);
+  object-position: center 20%; /* お顔が美しく収まる位置に調整 */
+  display: block;
 }
 
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 24px;
 }
 
 .info-list, .works-list {
@@ -141,16 +196,17 @@ h4 {
 }
 
 .info-list li, .works-list li {
-  margin-bottom: 8px;
-  padding-left: 14px;
+  margin-bottom: 10px;
+  padding-left: 18px;
   position: relative;
 }
 
 .info-list li::before, .works-list li::before {
-  content: "•";
-  color: var(--accent-color);
+  content: "❖";
+  color: var(--purple-bright);
   position: absolute;
   left: 0;
+  font-size: 0.85rem;
 }
 
 table {
@@ -159,76 +215,112 @@ table {
 }
 
 th, td {
-  padding: 10px;
-  border-bottom: 1px solid var(--border-color);
+  padding: 10px 8px;
+  border-bottom: 1px solid rgba(155, 109, 255, 0.25);
   text-align: left;
   font-size: 0.95rem;
 }
 
 th {
-  width: 35%;
-  color: var(--sub-text);
+  width: 34%;
+  color: var(--purple-bright);
+  font-weight: 600;
 }
 
+/* リンクボタン */
 .links-grid {
   display: flex;
-  gap: 12px;
-  margin: 15px 0;
+  gap: 14px;
+  margin: 16px 0 20px;
   flex-wrap: wrap;
 }
 
 .link-card {
   text-decoration: none;
-  background-color: var(--accent-color);
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  font-weight: bold;
-  transition: background 0.2s;
+  background: linear-gradient(135deg, #361b54 0%, #1d0e2e 100%);
+  border: 1px solid var(--purple-bright);
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  transition: all 0.3s;
 }
 
 .link-card:hover {
-  background-color: var(--accent-hover);
+  background: var(--purple-deep);
+  box-shadow: 0 0 15px var(--purple-glow);
+  transform: translateY(-2px);
 }
 
-/* おみくじセクション */
+/* 今日のお茶会診断 */
+.tea-controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.gothic-select {
+  font-family: "Shippori Mincho", serif;
+  background-color: #120b1c;
+  color: #ffffff;
+  border: 1px solid var(--border-ornate);
+  padding: 10px 14px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  flex: 1;
+  min-width: 240px;
+}
+
 .action-btn {
-  background-color: var(--accent-color);
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 1rem;
+  font-family: "Shippori Mincho", serif;
+  background: linear-gradient(135deg, #5e2f91 0%, #381859 100%);
+  color: #ffffff;
+  border: 1px solid var(--purple-bright);
+  padding: 10px 22px;
+  border-radius: 4px;
+  font-size: 0.95rem;
   cursor: pointer;
-  margin-top: 10px;
-  transition: transform 0.1s;
+  transition: all 0.3s;
 }
 
-.action-btn:active {
-  transform: scale(0.97);
+.action-btn:hover {
+  box-shadow: 0 0 16px var(--purple-glow);
+  background: #6f38ab;
 }
 
 .result-box {
-  margin-top: 15px;
-  padding: 15px;
-  border-radius: 8px;
-  background-color: var(--bg-color);
-  border: 1px dashed var(--accent-color);
-  font-weight: bold;
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 4px;
+  background-color: rgba(11, 8, 16, 0.85);
+  border: 1px solid var(--purple-bright);
+  color: var(--text-main);
+}
+
+.tea-title {
+  color: var(--purple-bright);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 6px;
 }
 
 /* 動画・埋め込み */
 .media-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 22px;
+  margin-bottom: 24px;
 }
 
 .iframe-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; 
+  padding-top: 56.25%;
+  border: 1px solid var(--border-ornate);
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 .iframe-wrapper iframe {
@@ -237,15 +329,54 @@ th {
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 8px;
   border: none;
+}
+
+/* X (Twitter) セクション */
+.x-section {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(155, 109, 255, 0.25);
+}
+
+.x-note {
+  font-size: 0.85rem;
+  color: var(--text-sub);
+  margin-bottom: 10px;
+}
+
+.x-direct-btn {
+  display: inline-block;
+  text-decoration: none;
+  background: #1a1126;
+  border: 1px solid var(--purple-bright);
+  color: var(--purple-bright);
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-bottom: 14px;
+  transition: all 0.3s;
+}
+
+.x-direct-btn:hover {
+  background: var(--purple-deep);
+  color: #ffffff;
+}
+
+.twitter-box {
+  max-width: 500px;
+  background: #120b1c;
+  border: 1px solid var(--border-ornate);
+  border-radius: 4px;
+  padding: 8px;
 }
 
 .footer {
   text-align: center;
-  padding: 20px;
-  color: var(--sub-text);
+  padding: 24px;
+  color: var(--text-sub);
   font-size: 0.85rem;
+  border-top: 1px solid rgba(155, 109, 255, 0.2);
 }
 
 @media (max-width: 700px) {
